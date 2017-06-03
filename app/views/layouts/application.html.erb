@@ -9,6 +9,21 @@
   </head>
 
   <body>
+    <% if current_user %>
+      You're signed in as <%= current_user.email %>
+      <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
+    <% else %>
+      <%= link_to "Sign in", new_user_session_path %>
+      <%= link_to "Register", new_user_registration_path %>   
+    <% end %> 
+    <% if notice.present? %>
+      <p class="alert alert-info"><%= notice %></p>
+    <% end %>
+    <% if alert.present? %>
+      <p class="alert alert-warning"><%= alert %></p>
+    <% end %>
+    
     <%= yield %>
+
   </body>
 </html>

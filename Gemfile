@@ -41,6 +41,8 @@ group :development, :test do
   gem 'byebug', platform: :mri
   # adding rspec gem to both :development and :test to run rspec tests on this project
   gem 'rspec-rails', '~> 3.5'
+  # adding factory_girl_rails gem to automate the production of fake database entries for testing purposes.
+  gem "factory_girl_rails", "~> 4.0"
 end
 
 group :development do
@@ -60,3 +62,4 @@ gem 'simple_form'
 
 # adding devise gem for user authentication
 gem 'devise'
+

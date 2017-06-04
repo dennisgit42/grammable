@@ -22,7 +22,10 @@ class GramsController < ApplicationController
   end
 
   def show
-    @gram = Gram.find(params[:id])
+    @gram = Gram.find_by_id(params[:id])
+    if @gram.nil?
+      render plain: "Gram not found", status: :not_found
+    end 
   end
 
 end

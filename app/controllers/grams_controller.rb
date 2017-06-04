@@ -21,4 +21,8 @@ class GramsController < ApplicationController
     params.require(:gram).permit(:message)
   end
 
+  def show
+    @gram = Gram.find(params[:id])
+  end
+
 end

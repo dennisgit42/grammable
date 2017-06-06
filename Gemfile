@@ -63,3 +63,12 @@ gem 'simple_form'
 # adding devise gem for user authentication
 gem 'devise'
 
+# adding carrierwave for image uploading
+gem 'carrierwave', '~> 1.0'
+
+# adding figaro to store credentials in secure environmental variables
+gem "figaro"
+
+# adding fog gem so carrierwave can communicate with amazon S3
+gem "fog-aws"
+

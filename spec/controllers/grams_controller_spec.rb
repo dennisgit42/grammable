@@ -3,6 +3,13 @@ require 'rails_helper'
 RSpec.describe GramsController, type: :controller do
 
   describe "grams#destroy action" do
+    it "should not allow users who did not create a gram to destroy the gram" do
+      gram = FactoryGirl.create(:gram)
+      user = FactoryGirl.create(:user)
+      sign_in user
+      delete :destroy, params: { id: gram.id }
+      expect(response).to have_http_status(:forbidden)
+    end
     it "should not allow unauthenticated users to destroy a gram" do
       gram = FactoryGirl.create(:gram)
       delete :destroy, params: { id: gram.id }
@@ -25,6 +32,13 @@ RSpec.describe GramsController, type: :controller do
   end
 
   describe "grams#edit action" do
+    it "should not let user who did not create a gram edit the gram" do
+      gram = FactoryGirl.create(:gram)
+      user = FactoryGirl.create(:user)
+      sign_in user
+      get :edit, params: { id: gram.id }
+      expect(response).to have_http_status(:forbidden)
+    end
     it "should not allow unauthenticated users to edit a gram" do
       gram = FactoryGirl.create(:gram)
       get :edit, params: { id: gram.id }
@@ -45,6 +59,13 @@ RSpec.describe GramsController, type: :controller do
   end
 
   describe "grams#update action" do
+    it "should not allow users who did not create the gram update the gram" do
+      gram = FactoryGirl.create(:gram)
+      user = FactoryGirl.create(:user)
+      sign_in user
+      patch :update, params: { id: gram.id, gram: { message: "yahoo!" } }
+      expect(response).to have_http_status(:forbidden)
+    end
     it "should not allow unauthenticated users to update a gram" do
       gram = FactoryGirl.create(:gram)
       patch :update, params: { id: gram.id, gram: { message: "Hello!" } }

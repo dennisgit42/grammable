@@ -1,10 +1,15 @@
-<h1>Grams!</h1>
 
-<% @grams.each do |gram| %>
-  <div>
-    <%= gram.message %>
-    <%= image_tag gram.picture %>
-  </div>
-<% end %>
+
+<div class="col-10 offset-1 col-sm-8 offset-sm-2 col-md-6 offset-md-3">
+  <% @grams.each do |gram| %>
+    <div class="card">
+      <div class="handle"><%= gram.user.email %></div>
+      <%= image_tag gram.picture, class: 'img-fluid' %>
+      <p>
+        <%= gram.message %>
+      </p>
+    </div>
+  <% end %>
+</div>
 
 

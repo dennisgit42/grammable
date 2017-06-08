@@ -27,8 +27,11 @@ body{
 
 .brand{
   font-size: 30px;
-  color: #125688;
   font-family: 'Pacifico', cursive;
+}
+
+.brand a{
+  color: #125688;
 }
 
 .handle{
@@ -43,6 +46,10 @@ body{
   margin: 20px;
 }
 
+.card p.help-block{
+  margin: 0;
+}
+
 .card {
   background-color: #fff;
   border-radius: .25rem;
@@ -51,4 +58,65 @@ body{
   margin-top: 40px;
   padding: 0;
   margin-top: 20px;
+}
+
+.card.form {
+  padding: 20px;
+}
+
+label {
+  font-size: 18px;
+}
+
+input {
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.new_gram .gram_picture input{
+  margin-left: 10px;
+}
+
+.my-btn {
+  background-color: #125688;
+  width: 100%;
+  border: none;
+  font-size: 24px;
+  color: white;
+  margin-top: 10px;
+}
+
+.input.boolean {
+  margin-left: 18px;
+  margin-top: 5px;
+}
+
+.input.boolean label{
+  margin-top: 5px;
+  line-height: 44px;
+} 
+
+.gram-actions a {
+  font-weight: bold;
+  font-size: 16px;
+  margin-right: 20px;
+}
+
+input#gram_picture{
+  margin-left: 10px;
+}
+
+.comments{
+  padding: 20px;
+}
+
+.comment{
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.comment_handle {
+  color: #125688;
+  font-weight: bold;
+  font-size: 18px;
 }

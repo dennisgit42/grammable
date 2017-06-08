@@ -8,6 +8,30 @@
       <p>
         <%= gram.message %>
       </p>
+      <div class="gram-actions">
+        <% if current_user && current_user == gram.user %>
+          <%= link_to "Edit", edit_gram_path(gram), class: "float-right" %>
+          <%= link_to 'Destroy', gram_path(gram), method: :delete, data: { confirm: "Are you sure? All data for this gram will be permanently lost." }, class: "float-right" %>
+        <% end %>
+      </div>
+      <br class="clear-fix" />
+      <div class="comments">
+        <h3>Comments</h3>
+        <% gram.comments.each do |comment| %>
+          <div class="comment">
+            <span class="comment_handle">
+              <%= comment.user.email %>
+            </span>
+            <%= comment.message %>
+          </div>
+        <% end %>
+        <br />
+        <h4>Add a comment</h4>
+        <%= simple_form_for Comment.new, url: gram_comments_path(gram) do |f| %>
+          <%= f.input :message %>
+          <%= f.submit "Submit your comment", class: "my-btn" %>
+        <% end %>
+      </div>
     </div>
   <% end %>
 </div>

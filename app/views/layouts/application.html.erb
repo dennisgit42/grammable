@@ -14,7 +14,7 @@
     <div class="top-nav">
       <div class="col-10 offset-1 col-sm-8 offset-sm-2 col-md-6 offset-md-3">
         <div class="brand float-left">
-          Grammable
+          <%= link_to 'Grammable', root_path %>
         </div>
         <div class="add float-right">
           <% if current_user %>
@@ -26,10 +26,10 @@
             <%= link_to "Register", new_user_registration_path %>   
           <% end %> 
           <% if notice.present? %>
-            <p class="alert alert-info"><%= notice %></p>
+            <span class="alert alert-info"><%= notice %></span>
           <% end %>
           <% if alert.present? %>
-            <p class="alert alert-warning"><%= alert %></p>
+            <span class="alert alert-warning"><%= alert %></span>
           <% end %>
         </div>
       </div>
